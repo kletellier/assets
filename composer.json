@@ -1,0 +1,20 @@
+{
+    "name": "kletellier/assets",
+    "type": "library",
+    "description": "assets is a PHP library that provide standard assets like Bootstrap,Font Awesome,Jquery for Kletellier/MVC.",
+    "keywords": ["jquery","kletellier","bootstrap"],
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "kletellier"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kletellier\\": "src/Kletellier/"
+        }
+    }
+}

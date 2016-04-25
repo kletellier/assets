@@ -131,5 +131,16 @@ class Assets
    		$cssfiles = array();
    		return self::getHtml($jsfiles,$cssfiles);
    }
+
+   /**
+    * return Flag Icon Css declaration
+    * @return type
+    */
+   public static function getFlagIconCss()
+   {
+    $jsfiles = array();
+    $cssfiles = array('flagiconcss/css/flag-icon.css');
+    return self::getHtml($jsfiles,$cssfiles);
+   }
    
 }

@@ -27,6 +27,7 @@ class AssetsTwigHelper extends \Twig_Extension
             new \Twig_SimpleFunction('assets_moment', array($this,'moment'),array('is_safe'=>array('html'))),       
             new \Twig_SimpleFunction('assets_leaflet', array($this,'leaflet'),array('is_safe'=>array('html'))),  
             new \Twig_SimpleFunction('assets_infinitescroll', array($this,'infinitescroll'),array('is_safe'=>array('html'))), 
+            new \Twig_SimpleFunction('assets_flagiconcss', array($this,'flagiconcss'),array('is_safe'=>array('html'))), 
         );
     }
 	
@@ -35,6 +36,11 @@ class AssetsTwigHelper extends \Twig_Extension
         return array(            
 			 
         );
+    }
+
+    public function flagiconcss()
+    {
+        return Assets::getFlagIconCss();
     }
 
     public function moment()

@@ -119,7 +119,7 @@ class Assets
     */
    public static function getMoment()
    {
-      $jsfiles = array('moment/moment.js');
+      $jsfiles = array('moment/js/moment.js');
       $cssfiles = array();
       return self::getHtml($jsfiles,$cssfiles,"Moment.js");
    }

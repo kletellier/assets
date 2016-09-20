@@ -18,6 +18,8 @@ class Menu   {
 	 
 	private function init()
 	{
+		$this->title = "";
+		$this->url = \GL\Core\Helper\Utils::url('');
 		$this->menu_items = array();
 	}
  

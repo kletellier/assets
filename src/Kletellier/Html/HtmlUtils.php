@@ -1,6 +1,6 @@
 <?php 
 
-namespace Kletellier\Assets; 
+namespace Kletellier\Html; 
 
 use GL\Core\Helpers\Utils;
 use Symfony\Component\Filesystem\Filesystem;
@@ -8,15 +8,15 @@ use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Finder\Finder;
 use GL\Core\Config\Config;
 
-class AssetsUtils
+class HtmlUtils
 { 
 	/**
 	 * Return public webpath
 	 * @return string
 	 */
-	public static function getPublicPath()
+	public static function getTemplatePath()
 	{
-		return Utils::getPublicPath();
+		return TEMPLATEPATH;
 	}
 	
 	/**
@@ -52,5 +52,27 @@ class AssetsUtils
         }		 
 	}
 
-	 
+	/**
+	 * Verify and install Twig Helper
+	 * @return type
+	 */
+	public static function verifyHelper()
+	{
+		try 
+		{
+			$cfg = new Config("twig");
+			$values = $cfg->load();
+			if(!array_key_exists("assets",$values))
+			{
+				$arr = array();
+				$arr["class"] = "\Kletellier\Assets\AssetsTwigHelper";
+				$values["assets"] = $arr;
+				$cfg->save($values);
+			}
+		} 
+		catch (Exception $e) 
+		{
+			
+		}
+	}
 } 

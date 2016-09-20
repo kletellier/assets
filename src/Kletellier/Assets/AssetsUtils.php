@@ -52,5 +52,27 @@ class AssetsUtils
         }		 
 	}
 
-	 
+	 /**
+	 * Verify and install Twig Helper
+	 * @return type
+	 */
+	public static function verifyHelper()
+	{
+		try 
+		{
+			$cfg = new Config("twig");
+			$values = $cfg->load();
+			if(!array_key_exists("assets",$values))
+			{
+				$arr = array();
+				$arr["class"] = "\Kletellier\Assets\AssetsTwigHelper";
+				$values["assets"] = $arr;
+				$cfg->save($values);
+			}
+		} 
+		catch (Exception $e) 
+		{
+			
+		}
+	}
 } 
